@@ -1,17 +1,31 @@
 package providers;
 
+import models.Gender;
 import models.User;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class UserFactory {
-
-    public User getAlreadyRegisteredUser() {
-        return new User("jan", "kowalski", User.Gender.Male,
-                "jqqwqweewek@wp.pl", "qweasdzxc123!@");
+    public User getRandomUser() {
+        return new User.Builder()
+                .firstName(getRandomText())
+                .lastName(getRandomText())
+                .email(getRandomText() + "@wp.pl")
+                .password(getRandomText())
+                .gender(Gender.getRandomGender())
+                .build(); //tworzy obiket usera
     }
 
-    public User getRandomUser() {
-        RandomStringGenerator rnd = new RandomStringGenerator();
-        return new User(rnd.getRandomString(5), rnd.getRandomString(5), User.Gender.Male,
-                rnd.getRandomEmail(), "qweasdzxc123!@");
+    public User getAlreadyRegisteredUser() {
+        return new User.Builder()
+                .firstName("jan")
+                .lastName("kowalski")
+                .email("jqqwqweewek@wp.pl")
+                .password("qweasdzxc123!@")
+                .gender(Gender.Male)
+                .build();//ta metoda z User ktora sprawdza password i emai
+    }
+
+    private String getRandomText() {
+        return RandomStringUtils.random(7, true, false);
     }
 }

@@ -1,36 +1,40 @@
 package TestBase;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import configuration.BrowserEnvironment;
+import configuration.EnvironmentProperty;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pages.HomePage;
 
-import java.util.concurrent.TimeUnit;
+
 
 public class TestBase {
-
-    private WebDriver driver;
-
-    public WebDriver getDriver() {
-        return driver;
-    }
+    protected static WebDriver driver;
+    public HomePage homePage;
+    //driver będzie wykorzystywany w teście dlatego nie może być prywatny
+    private static Logger logger = LoggerFactory.getLogger("TestBase.class");
+    private static BrowserEnvironment browserEnvironment;
+    public static EnvironmentProperty environmentProperty;
 
     @BeforeEach
-    public void setUp(){
-        ChromeOptions options = new ChromeOptions();
-        WebDriverManager.chromedriver().setup();
-        options.addArguments("start-maximized");
-        driver = new ChromeDriver(options);
-        // take this from yml/property file
-        driver.get("http://146.59.32.4/"); //tu definiujemy strone,
-        // bo wszystkie testy beda korzystaly z tej strony
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+    public  void setUp() {
+        environmentProperty = EnvironmentProperty.getInstance();//instancja singletona
+        browserEnvironment = new BrowserEnvironment();
+        driver = browserEnvironment.getDriver();
+        logger.debug("Driver initialized");
+//        driver.manage().timeouts().implicitlyWait(Long.parseLong(System.getProperty("implicitlyWait")), TimeUnit.SECONDS);//konf globalna
+//        logger.debug("implicit wait set for 15 sec");
+        homePage = new HomePage(driver);
+        logger.debug("create object homePage");
     }
 
+
     @AfterEach
-    public void cleanUp(){
+    void TearDown() {
         driver.quit();
+        logger.debug("Driver closed");
     }
 }

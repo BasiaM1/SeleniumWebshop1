@@ -1,5 +1,6 @@
 package pages;
 
+import models.Gender;
 import models.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,7 +44,7 @@ public class RegistrationPage extends BasePage {
         sendKeys(passwordInput, user.getPassword());
         sendKeys(emailNameInput, user.getEmail());
 
-        if (user.getGender() == User.Gender.Male) {
+        if (user.getGender() == Gender.Male) {
             click(maleRbt);
         } else {
             click(femaleRbt);

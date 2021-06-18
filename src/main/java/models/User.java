@@ -1,41 +1,61 @@
 package models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public class User {
-    private String fistName;
-    private String lastName;
-    private Gender gender;
-    private String email;
-    private String password;
+    private final String fistName;
+    private final String lastName;
+    private final Gender gender;
+    private final String email;
+    private final String password;
 
-    public User(String fistName, String lastName, Gender gender, String email, String password) {
-        this.fistName = fistName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.email = email;
-        this.password = password;
-    }
 
-    public String getFistName() {
-        return fistName;
-    }
+    public static final class Builder {
+        private String firstName;
+        private String lastName;
+        private String password;
+        private String email;
+        private Gender gender;
 
-    public String getLastName() {
-        return lastName;
-    }
 
-    public Gender getGender() {
-        return gender;
-    }
+        public Builder firstName(String firstName) {
+            this.firstName = firstName;
+            return this; //to są settery
+        }
 
-    public String getEmail() {
-        return email;
-    }
+        public Builder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
 
-    public String getPassword() {
-        return password;
-    }
+        public Builder password(String password) {
+            this.password = password;
+            return this;
+        }
 
-    public enum Gender{
-        Male, Female
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder gender(Gender gender) {
+            this.gender = gender;
+            return this;
+        }
+
+        public User build() {  //mamy metode build która nam sprawdza warunki kotre sa wymagane
+            if (email.isEmpty()) {
+                throw new IllegalStateException("Name cannot be empty");
+            }
+
+            if (password.isEmpty()) {
+                throw new IllegalStateException("Password cannot be empty");
+            }
+            return new User(firstName, lastName, gender, email, password);
+        }
+
     }
 }
