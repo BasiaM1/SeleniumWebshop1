@@ -39,7 +39,7 @@ public class RegistrationPage extends BasePage {
     private WebElement registerBtn;
 
     public void registerUser(User user) {
-        sendKeys(firstNameInput, user.getFistName());
+        sendKeys(firstNameInput, user.getFirstName());
         sendKeys(lastNameInput, user.getLastName());
         sendKeys(passwordInput, user.getPassword());
         sendKeys(emailNameInput, user.getEmail());

@@ -39,8 +39,9 @@ public class WaitTypes {
     }
 
     @SuppressWarnings("deprecation")
-    public WebElement waitForElementFluent(WebDriver driver, WebElement element, int timeout, int timePool) {
+    public WebElement waitForElementFluent(WebDriver driver, WebElement element, int timePool) {
         try {
+            int timeout = Integer.parseInt(System.getProperty("explicitWait"));
             logger.debug("Waiting for max: " + timeout + " seconds for element to be available");
 
             WebDriverWait wait = (WebDriverWait) new FluentWait(driver)

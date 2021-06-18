@@ -6,7 +6,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 public class UserFactory {
     public User getRandomUser() {
-        return new User.Builder()
+        return User.builder()
                 .firstName(getRandomText())
                 .lastName(getRandomText())
                 .email(getRandomText() + "@wp.pl")
@@ -16,7 +16,7 @@ public class UserFactory {
     }
 
     public User getAlreadyRegisteredUser() {
-        return new User.Builder()
+        return User.builder()
                 .firstName("jan")
                 .lastName("kowalski")
                 .email("jqqwqweewek@wp.pl")

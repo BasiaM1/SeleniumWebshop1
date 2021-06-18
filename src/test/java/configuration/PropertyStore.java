@@ -73,6 +73,10 @@ public enum PropertyStore {
         return Integer.parseInt((this.retrieveValue(this.propertyKey)));
     }
 
+    public Long getLongValue() {
+        return Long.parseLong((this.retrieveValue(this.propertyKey)));
+    }
+
     public boolean getBoolean() {
         return this.isSpecified() && Boolean.parseBoolean(this.value);
     }

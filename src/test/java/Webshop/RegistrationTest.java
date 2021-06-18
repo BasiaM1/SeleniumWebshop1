@@ -23,7 +23,7 @@ public class RegistrationTest extends TestBase {
                 .registerUser(user);
 
         assertThat(homePage.getMenu().getUserName(),
-                equalTo(user.getFistName() + " " + user.getLastName()));
+                equalTo(user.getFirstName() + " " + user.getLastName()));
     }
 }
 //    @AfterEach(){

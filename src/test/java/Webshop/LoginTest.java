@@ -18,7 +18,7 @@ public class LoginTest extends TestBase{
     @BeforeEach
     public void testSetup() {
         user = new UserFactory().getAlreadyRegisteredUser();
-        expectedSignInText = user.getFistName() + " " + user.getLastName();
+        expectedSignInText = user.getFirstName() + " " + user.getLastName();
     }
 
     @Execution(ExecutionMode.CONCURRENT)

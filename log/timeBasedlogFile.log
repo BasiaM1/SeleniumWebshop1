@@ -1,13 +1,10 @@
-47749 [main] DEBUG WaitTypes.class - Element not clicked on the web page
-47789 [main] DEBUG BasePage.class - CLicking button: 
-47892 [main] DEBUG WaitTypes.class - Waiting for max: 15 seconds for element to be available
-63278 [main] DEBUG WaitTypes.class - Element not clicked on the web page
-63316 [main] DEBUG BasePage.class - CLicking button: 
-63371 [main] DEBUG WaitTypes.class - Waiting for max: 15 seconds for element to be available
-78790 [main] DEBUG WaitTypes.class - Element not clicked on the web page
-78810 [main] DEBUG BasePage.class - CLicking button: 
-78898 [main] DEBUG WaitTypes.class - Waiting for max: 15 seconds for element to be available
-78960 [main] DEBUG WaitTypes.class - Element clicked on the web page
-79000 [main] DEBUG BasePage.class - CLicking button: SAVE
-79585 [main] DEBUG MenuPage.class - Account name: kSEeoGC eGOHENQ
-80190 [main] DEBUG TestBase.class - Driver closed
+34565 [main] DEBUG WaitTypes.class - Element not clicked on the web page
+34600 [main] DEBUG BasePage.class - CLicking button: 
+34652 [main] DEBUG WaitTypes.class - Waiting for max: 15 seconds for element to be available
+49867 [main] DEBUG WaitTypes.class - Element not clicked on the web page
+49894 [main] DEBUG BasePage.class - CLicking button: 
+49969 [main] DEBUG WaitTypes.class - Waiting for max: 15 seconds for element to be available
+50043 [main] DEBUG WaitTypes.class - Element clicked on the web page
+50065 [main] DEBUG BasePage.class - CLicking button: SAVE
+50658 [main] DEBUG MenuPage.class - Account name: RIMnbZn nedXQaj
+51265 [main] DEBUG TestBase.class - Driver closed

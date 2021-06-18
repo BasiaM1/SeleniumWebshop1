@@ -30,12 +30,12 @@ public class CategoriesPage extends BasePage{
     }
 
     public String getSubCategoryHeader() {
-        wt.waitForElementFluent(getDriver(), categoryHeader,20,2);
+        wt.waitForElementFluent(getDriver(), categoryHeader,2);
         return categoryHeader.getText();
     }
 
     public String getNumberOfProductsTxt(){
-        wt.waitForElementFluent(getDriver(), numberOfProductsTxt, 20,5);
+        wt.waitForElementFluent(getDriver(), numberOfProductsTxt,5);
         String[] text = numberOfProductsTxt.getText().split(" ");
         return text[2];
     }
